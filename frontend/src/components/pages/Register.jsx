@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useRecoilState } from "recoil";
-import { registerAtom } from "../../store/register.atom";
+// import { registerAtom } from "../../store/register.atom";
 
 export const Register = () => {
   const BASE_URL = "https://localhost:3000/api/v1/user"
-  const [formData , setFormData] = useRecoilState(registerAtom)
+  // const [formData , setFormData] = useRecoilState(registerAtom)
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
-      <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md">
+      <form  className="bg-white p-8 rounded shadow-md">
         <h2 className="text-2xl mb-4">Register</h2>
         <div className="mb-4">
           <label htmlFor="username" className="block text-gray-700">
@@ -18,8 +18,6 @@ export const Register = () => {
             type="text"
             id="username"
             name="username"
-            value={formData.username}
-            onChange={handleChange}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div>
@@ -31,8 +29,6 @@ export const Register = () => {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div>
@@ -44,8 +40,6 @@ export const Register = () => {
             type="password"
             id="password"
             name="password"
-            value={formData.password}
-            onChange={handleChange}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div>
@@ -57,8 +51,6 @@ export const Register = () => {
             type="password"
             id="confirmPassword"
             name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div>
