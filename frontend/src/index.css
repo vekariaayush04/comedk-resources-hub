@@ -10,6 +10,10 @@
   padding: 20px;
   background: #000000;
   background: linear-gradient(to left,rgb(106, 97, 97),rgb(0, 0, 0)) ;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 .footer a{
   text-decoration: none;
@@ -19,4 +23,13 @@
 .footer a:hover{
   color: rgb(149, 187, 159);
   border-bottom: 1px solid rgb(149, 187, 159);
+}
+.footer-head{
+  text-align: center;
+  margin: 2px;
+}
+.footer-link{
+  text-align: center;
+  margin: 2px;
+  padding: 2px;
 }
