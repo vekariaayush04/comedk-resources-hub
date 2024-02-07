@@ -1,11 +1,13 @@
 // backend/routes/user.js
 const express = require('express');
-
+const mongoose = require('mongoose')
 const router = express.Router();
 const zod = require("zod");
-const { User } = require("../models/user.model");
+const User = require("../models/user.model")
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config");
+
+mongoose.connect("mongodb+srv://ayushrvekaria:0V2Xw5K2u8F6SvLu@cluster0.hf9nduf.mongodb.net/")
 
 const signupBody = zod.object({
     username: zod.string(),
@@ -17,7 +19,7 @@ router.post("/signup", async (req, res) => {
     const { success } = signupBody.safeParse(req.body)
     if (!success) {
         return res.status(411).json({
-            message: "Email already taken / Incorrect inputs"
+            message: "Email already taken / Incoct inputs"
         })
     }
 

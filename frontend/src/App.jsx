@@ -3,9 +3,11 @@ import "./App.css";
 import { About, Home, Login, Register } from "./components/pages";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { RecoilRoot } from "recoil";
 
 function App() {
   return (
+    <RecoilRoot>
     <div className="App">
       <Navbar />
       <Routes>
@@ -16,6 +18,7 @@ function App() {
       </Routes>
       <Footer/>
     </div>
+    </RecoilRoot>
   );
 }
 
