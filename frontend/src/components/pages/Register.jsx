@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 // import { useRecoilState } from "recoil";
 // import { registerAtom } from "../../store/register.atom";
 import axios from 'axios'
@@ -44,26 +45,24 @@ export const Register = () => {
 
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div  className="bg-white p-8 rounded shadow-md">
-        <h2 className="text-2xl mb-4">Register</h2>
+    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-purple-400 to-indigo-600">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+        <h2 className="text-3xl font-semibold text-center mb-6">REGISTER</h2>
         <div className="mb-4">
-          <label htmlFor="username" className="block text-gray-700">
+          <label htmlFor="username" className="block text-gray-700 mb-1">
             Username
           </label>
           <input
             type="text"
             id="username"
             value={username}
-            onChange={(e)=>{
-              setUsername(e.target.value)
-            }}
+            onChange={(e) => setUsername(e.target.value)}
             name="username"
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700">
+          <label htmlFor="email" className="block text-gray-700 mb-1">
             Email
           </label>
           <input
@@ -71,14 +70,12 @@ export const Register = () => {
             id="email"
             name="email"
             value={email}
-            onChange={(e)=>{
-              setEmail(e.target.value)
-            }}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="password" className="block text-gray-700">
+          <label htmlFor="password" className="block text-gray-700 mb-1">
             Password
           </label>
           <input
@@ -86,30 +83,23 @@ export const Register = () => {
             id="password"
             name="password"
             value={password}
-            onChange={(e)=>{
-              setPassword(e.target.value)
-            }}
+            onChange={(e) => setPassword(e.target.value)}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
           />
         </div>
-        {/* <div className="mb-6">
-          <label htmlFor="confirmPassword" className="block text-gray-700">
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-          />
-        </div> */}
         <button
           type="submit"
           onClick={addData}
-          className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300"
+          className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-md transition duration-300"
         >
           Register
         </button>
+        <p className="mt-4 text-sm text-gray-600 text-center">
+          Already have an account?{" "}
+          <Link to="/login" className="text-blue-500 hover:underline">
+            Login here
+          </Link>
+        </p>
       </div>
     </div>
   );
