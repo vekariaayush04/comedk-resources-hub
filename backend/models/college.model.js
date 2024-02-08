@@ -28,7 +28,6 @@ const collegeSchema = new mongoose.Schema({
     },
     required: true
   },
-  // Additional details, you can customize as needed
   location: {
     type: String,
     required: true
