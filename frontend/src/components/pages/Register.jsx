@@ -1,43 +1,51 @@
 import React, { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
-import { registerAtom } from "../../store/register.atom";
+// import { useRecoilState } from "recoil";
+// import { registerAtom } from "../../store/register.atom";
 import axios from 'axios'
 
 export const Register = () => {
   const BASE_URL = "http://localhost:3000/api/v1/user"
-  const [formData , setFormData] = useRecoilState(registerAtom)
+  const [formData , setFormData] = useState({
+    username: '',
+    email: '',
+    password: ''
+  })
   const [username,setUsername] = useState('')
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
 
-  const addData = (e)=> {
-    e.preventDefault(); 
-    setFormData([...formData,{
+  const addData = ()=> { 
+    setFormData({
       username: username,
       email: email,
       password: password
-    }
-    ]);
-    console.log(formData);
+    });
   }
+
   useEffect(()=>{
-    async ()=>{
-      try {
-        const response = await axios.post(`${BASE_URL}/signup`, formData);
-        const token = response.data.token;
-        // Do something with the token, such as storing it in local storage
-        console.log("Token:", token);
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    }
+      // const fetchData = async()=>{
+      //     const response = await axios.post();
+      //     const token = response.data.token;
+      //     // Do something with the token, such as storing it in local storage
+      //     console.log("Token:", token);
+      // }
+      // fetchData()
+
+      axios.post(`${BASE_URL}/signup`, formData)
+      .then((response)=>{
+        const token = response.data.token
+        console.log(token);
+      })
+      .catch((error)=>{
+        console.log(error.response.data)
+      })
   },[formData])
 
-  
+
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
-      <form  className="bg-white p-8 rounded shadow-md">
+      <div  className="bg-white p-8 rounded shadow-md">
         <h2 className="text-2xl mb-4">Register</h2>
         <div className="mb-4">
           <label htmlFor="username" className="block text-gray-700">
@@ -102,7 +110,7 @@ export const Register = () => {
         >
           Register
         </button>
-      </form>
+      </div>
     </div>
   );
 };
