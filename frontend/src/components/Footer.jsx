@@ -6,7 +6,7 @@ import { faTwitter, faFacebook, faInstagram } from "@fortawesome/free-brands-svg
 const Footer = () => {
   return (
     <footer className="bg-black text-white py-4 fixed bottom-0 w-full">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto flex justify-between items-center" >
         <h1 className="text-lg font-semibold">All Rights Reserved &copy; ComedSark</h1>
         <nav className="flex">
           <ul className="flex">

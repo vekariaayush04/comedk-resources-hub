@@ -45,7 +45,7 @@ export const Register = () => {
 
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-purple-400 to-indigo-600">
+    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-purple-400 to-indigo-500">
       <div className="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
         <h2 className="text-3xl font-semibold text-center mb-6">REGISTER</h2>
         <div className="mb-4">
