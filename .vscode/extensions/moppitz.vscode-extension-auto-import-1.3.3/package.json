@@ -1,0 +1,120 @@
+{
+	"name": "vscode-extension-auto-import",
+	"displayName": "Auto Import - ES6 & TS",
+	"description": "Automatically finds, parses and provides code actions and code completion for all available imports. Works with JavaScript and TypeScript. [Forked]",
+	"version": "1.3.3",
+	"contributors": [
+		{
+			"name": "soates",
+			"url": "https://github.com/soates"
+		},
+		{
+			"name": "lukeautry",
+			"url": "https://github.com/lukeautry"
+		},
+		{
+			"name": "zhaoshengjun",
+			"url": "https://github.com/zhaoshengjun"
+		},
+		{
+			"name": "third774",
+			"url": "https://github.com/third774"
+		},
+		{
+			"name": "martinoppitz",
+			"url": "https://github.com/martinoppitz"
+		}
+	],
+	"publisher": "moppitz",
+	"engines": {
+		"vscode": "^0.10.10"
+	},
+	"galleryBanner": {
+		"color": "#2d4794",
+		"theme": "dark"
+	},
+	"keywords": [
+		"javascript",
+		"typescript",
+		"imports",
+		"exports",
+		"require"
+	],
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:javascript",
+		"onLanguage:javascriptreact",
+		"onLanguage:typescript",
+		"onLanguage:typescriptreact"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.scanNodeModules",
+				"title": "Scan node_modules for imports"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Auto Import configuration",
+			"properties": {
+				"autoimport.filesToScan": {
+					"type": "string",
+					"default": "${workspaceRoot}/**/*.{js,jsx,ts,tsx}",
+					"description": "Glob for files to watch and scan, e.g ./src/** ./src/app/**/*.ts. Defaults to **/*.{ts,tsx}"
+				},
+				"autoimport.showNotifications": {
+					"type": "boolean",
+					"default": false,
+					"description": "Specifies wether to show notifications from Auto Import"
+				},
+				"autoimport.doubleQuotes": {
+					"type": "boolean",
+					"default": false,
+					"description": "Specifies wether to use double quotes"
+				},
+				"autoimport.spaceBetweenBraces": {
+					"type": "boolean",
+					"default": true,
+					"description": "Specifies wether to use spaces between first and last brace"
+				},
+				"autoimport.autoComplete": {
+					"type": "boolean",
+					"default": true,
+					"description": "Adds found items to intellisense and automatically imports then"
+				}
+			}
+		}
+	},
+	"icon": "icon.png",
+	"homepage": "https://github.com/martinoppitz/vscode-extension-auto-import",
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"@types/node": "7.0.8",
+		"@types/mocha": "2.2.40",
+		"mocha": "3.2.0",
+		"typescript": "2.2.1",
+		"vscode": "1.1.0"
+	},
+	"dependencies": {
+		"lodash": "4.17.4",
+		"node-json-db": "0.7.3"
+	},
+	"__metadata": {
+		"id": "6aef71bc-661a-4042-ad05-d2e190b39082",
+		"publisherId": "a1d195fd-0887-495c-a885-3d09c7b4c5a0",
+		"publisherDisplayName": "Martin Oppitz",
+		"targetPlatform": "undefined",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1693402136514,
+		"preRelease": false
+	}
+}
